@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Weather Information</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<center>
+						<h1>"{{forcast}}"</h1>
+						<img src="{{weather_icon}}" alt="{{forecast}}">
+						<br />
+						<center><h4>Weather Details</h4></center>
+						<div class="row general_weather_information">
+							<div class="col">
+								<p> <b> Morning: </b>{{feels_like.morning}} °C</p>
+								<p> <b> Day: </b>{{feels_like.day}} °C</p>
+								<p> <b> Evening: </b>{{feels_like.evening}} °C</p>
+								<p> <b> Night: </b>{{feels_like.night}} °C</p>
+							</div>
+							<div class="col">
+									<p> <b> Clouds: </b>{{general_weather.clouds}} %</p>
+									<p> <b> Dew Point: </b>{{general_weather.dew_point}} </p>
+									<p> <b> Humidity: </b>{{general_weather.humidity}} %</p>
+									<p> <b> Wind: </b>{{general_weather.wind_speed}} </p>
+							</div>
+						</div>
+
+					</center>
+				</div>
+
+
+				<form class="login100-form" action="/weather_update" method="POST" >
+
+					<center><h4>3 Day Forcast</h4></center>
+
+					<div class="text-center p-t-136">
+
+							<input class="input100"  name="location" type="text" id="location" placeholder="ex. Montreal, Quebec">
+						<br />
+
+							<button type="submit" class="btn btn-dark" >Update</button>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/tilt/tilt.jquery.min.js') }}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
